@@ -1,9 +1,7 @@
 // Запись посетителей
 
 function writeUserData(username, chat_id, date) {
-    var sheet = spreadsheet.getSheetByName("YOUR_SHEET_NAME"); // Лист пользователей кто нажал старт в боте
-   
-  sheet.appendRow([username, chat_id, date]);
+    visitersList.appendRow([username, chat_id, date]);
 }
 
 
@@ -15,7 +13,7 @@ function recordBirthday(msg_text, chat_id) {
   var birthday = parts[1].trim();
   var nickname = parts[2] ? parts[2].trim() : '';
 
-  spreadsheet.getSheetByName("YOUR_SHEET_NAME").appendRow([name, birthday, '', nickname]); // Лист с датами ДР, где происходит запись
+  mainList.appendRow([name, birthday, '', nickname]); // Лист с датами ДР, где происходит запись
   
   var data = "Кто: " + name + "\nКогда: " + birthday;
   
@@ -33,8 +31,7 @@ function recordBirthday(msg_text, chat_id) {
 // Удалить последнюю запись
 
 function deleteLastRow(chat_id) {
-  var sheet = spreadsheet.getSheetByName("YOUR_SHEET_NAME"); // Лист с датами ДР, где происходит запись
-  var lastRow = sheet.getLastRow();
+  var lastRow = mainList.getLastRow();
   var range = sheet.getRange(lastRow, 1, 1, sheet.getLastColumn());
   var values = range.getValues();
 
