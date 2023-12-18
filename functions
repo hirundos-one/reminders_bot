@@ -1,9 +1,8 @@
 // Показать у кого ДР сегодня
 
 function showTodayBirthday(chat_id) {
-  var sheet = spreadsheet.getSheetByName("YOUR_SHEET_NAME"); // Лист отсортированными датами ДР
-  var lastRow = sheet.getLastRow();
-  var range = sheet.getRange(2, 1, lastRow - 1, 4);  // Предполагается, что данные о днях рождения находятся в столбцах A, B, C, D
+  var lastRow = sortList.getLastRow();
+  var range = sortList.getRange(2, 1, lastRow - 1, 4);  // Предполагается, что данные о днях рождения находятся в столбцах A, B, C, D
   var data = range.getValues();
 
   var today = new Date();
@@ -39,9 +38,8 @@ function showTodayBirthday(chat_id) {
 // Показать у кого ДР в текущем месяце
 
 function showMonthBirthdays(chat_id) {
-  var sheet = spreadsheet.getSheetByName("YOUR_SHEET_NAME"); // Лист отсортированными датами ДР
-  var lastRow = sheet.getLastRow();
-  var range = sheet.getRange(2, 1, lastRow - 1, 4);  // Предполагается, что данные о днях рождения находятся в столбцах A, B, C, D
+  var lastRow = sortList.getLastRow();
+  var range = sortList.getRange(2, 1, lastRow - 1, 4);  // Предполагается, что данные о днях рождения находятся в столбцах A, B, C, D
   var data = range.getValues();
   var today = new Date();
   var currentMonth = today.getMonth();
@@ -77,9 +75,8 @@ function showMonthBirthdays(chat_id) {
 // Показать у кого ДР в следующем месяце
 
 function showNextMonthBirthdays(chat_id) {
-  var sheet = spreadsheet.getSheetByName("YOUR_SHEET_NAME"); // Лист отсортированными датами ДР
-  var lastRow = sheet.getLastRow();
-  var range = sheet.getRange(2, 1, lastRow - 1, 4);  // Предполагается, что данные о днях рождения находятся в столбцах A, B, C, D
+  var lastRow = sortList.getLastRow();
+  var range = sortList.getRange(2, 1, lastRow - 1, 4);  // Предполагается, что данные о днях рождения находятся в столбцах A, B, C, D
   var data = range.getValues();
   var today = new Date();
   var nextMonth = today.getMonth() + 1;
@@ -117,9 +114,8 @@ function showNextMonthBirthdays(chat_id) {
 // Показать все ДР в году
 
 function showYear(chat_id) {
-  var sheet = spreadsheet.getSheetByName("YOUR_SHEET_NAME"); // Лист отсортированными датами ДР
-  var lastRow = sheet.getLastRow();
-  var range = sheet.getRange(2, 1, lastRow - 1, 4);  // Предполагается, что данные о днях рождения находятся в столбцах A, B, C, D
+  var lastRow = sortList.getLastRow();
+  var range = sortList.getRange(2, 1, lastRow - 1, 4);  // Предполагается, что данные о днях рождения находятся в столбцах A, B, C, D
     
   var data = range.getValues();
   var message = "🔸 Все дни рождения в году:\n\n";
