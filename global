@@ -1,8 +1,10 @@
 const token = "YOUR_TELEGRAM_TOKEN"; // Устанавливаем токен телеграм бота
-
-let webAppUrl = "YOUR_APP_LINK"; // Ссылка на приложение
-
-let spreadsheet = SpreadsheetApp.openById("YOUR_TABLE_ID") // Выбор таблицы с которой работаем.
+const webAppUrl = "YOUR_APP_LINK"; // Ссылка на приложение
+const spreadsheet = SpreadsheetApp.openById("YOUR_TABLE_ID"); // Выбор таблицы с которой работаем.
+const sortList = spreadsheet.getSheetByName("YOUR_SHEET_NAME"); // Лист отсортированными датами ДР
+const mainList = spreadsheet.getSheetByName("YOUR_SHEET_NAME"); // Лист с датами ДР, где происходит запись
+const subscribeList = spreadsheet.getSheetByName("YOUR_SHEET_NAME"); // Лист пользователей с доступом к боту
+const visitersList = spreadsheet.getSheetByName("YOUR_SHEET_NAME"); // Лист пользователей кто нажал старт в боте
 
 
 // Проверка связи.
