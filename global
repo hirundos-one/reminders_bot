@@ -1,0 +1,18 @@
+const token = "YOUR_TELEGRAM_TOKEN"; // Устанавливаем токен телеграм бота
+
+let webAppUrl = "YOUR_APP_LINK"; // Ссылка на приложение
+
+let spreadsheet = SpreadsheetApp.openById("YOUR_TABLE_ID") // Выбор таблицы с которой работаем.
+
+
+// Проверка связи.
+function getMe() {
+  let response = UrlFetchApp.fetch("https://api.telegram.org/bot" + API + "/getMe"); 
+  console.log(response.getContentText());
+}
+
+//Установка свзяи между таблицами и ботом
+function setWebhook() {
+    let response = UrlFetchApp.fetch("https://api.telegram.org/bot" + API + "/setWebhook?url=" + webAppUrl);
+  console.log(response.getContentText());
+}
