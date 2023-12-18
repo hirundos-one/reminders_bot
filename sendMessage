@@ -1,0 +1,42 @@
+// Отправить сообщение
+
+function sendMessage(chat_id, message) {
+  let payload = {
+  'method': 'sendMessage',
+  'chat_id': String(chat_id),
+  'text': message,
+  'parse_mode': 'HTML'
+  }
+  let data = {
+    "method": "post",
+    "payload": payload
+  }
+    UrlFetchApp.fetch('https://api.telegram.org/bot' + token + '/', data);
+}
+
+
+// Отправить рассылку конкретным пользователям
+
+function sendMessageToUsers(message) {
+  var telegramApiUrl = "https://api.telegram.org/bot" + token + "/sendMessage";
+
+  var sheet = spreadsheet.getSheetByName("YOUR_SHEET_NAME"); // Лист пользователей с доступом к боту
+
+  var range = sheet.getRange("A2:a"); // Диапазон с chatId и сообщением для каждого пользователя
+  var data = range.getValues();
+
+  for (var i = 0; i < data.length; i++) {
+    var chatId = data[i][0];
+
+    var payload = {
+      method: "post",
+      contentType: "application/json",
+      payload: JSON.stringify({
+        chat_id: chatId, // Изменено на chat_id
+        text: message
+      })
+    };
+
+    UrlFetchApp.fetch(telegramApiUrl, payload);
+  }
+}
