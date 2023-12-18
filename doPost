@@ -71,7 +71,7 @@ if (data.message.text == "/start") {
 writeUserData(username, chat_id, date);
 }
 
-var sheet = spreadsheet.getSheetByName("YOUR_SHEET_NAME"); // Лист с пользователей с доступом к боту
+var sheet = spreadsheet.getSheetByName("YOUR_SHEET_NAME"); // Лист пользователей с доступом к боту
 var range = sheet.getRange("A2:a"); // Диапазон CHATID пользователей с доступом к боту
 var data = range.getValues();
 
